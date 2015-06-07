@@ -1,0 +1,44 @@
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Flowchart of steps}}{6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A cross-sectional view of the magnet-through-coil induction system. The blue arrows represent the magnetization of the magnet}}{7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Magnet-across-coils induction system}}{8}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces LTspice circuit Example}}{10}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Eagle Board Example}}{11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Different motors}}{14}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Bicycle wheel}}{14}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Tachometer}}{15}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces magnets}}{15}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces coils}}{16}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces transformers}}{16}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces integrated circuits}}{17}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces DC motor}}{17}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Roller}}{18}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces wheel of the prototype}}{18}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces tachometer}}{18}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces magnets on the wheel}}{19}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces First coil}}{19}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Second coil}}{20}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Costume coil}}{20}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Ferromagnetic Material}}{20}
+\contentsline {figure}{\numberline {4.17}{\ignorespaces First prototype}}{21}
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Simulation circuit 1}}{22}
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Simulation circuit 2}}{22}
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Homemade coil attached to the prototype}}{23}
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Simulation circuit ratio 1:20}}{23}
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Simulation circuit ratio 1:100}}{24}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Magnetic flux density from a bar magnet.}}{29}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Point charge and single wire turn geometry}}{30}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Magnetic dipole and single wire turn geometry.}}{32}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Schematic of the magnet placement and the resulting charge density on the z-axis.}}{35}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Schematic of the coil placement and the tangential magnetic field at $-x_B$ resulting from current $i$ flowing through all three phases of coils.}}{38}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Three-phase coil arrangement geometry.}}{40}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Path of the magnetic flux in a magnet-across-coils system.}}{44}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

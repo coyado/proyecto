@@ -1,0 +1,1416 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Plantilla de memoria en LaTeX para la ETSIT - Universidad Rey Juan Carlos
+%%
+%% Por Gregorio Robles <grex arroba gsyc.urjc.es>
+%%     Grupo de Sistemas y Comunicaciones
+%%     Escuela Técnica Superior de Ingenieros de Telecomunicación
+%%     Universidad Rey Juan Carlos
+%% (muchas ideas tomadas de Internet, colegas del GSyC, antiguos alumnos...
+%%  etc. Muchas gracias a todos)
+%%
+%% La última versión de esta plantilla está siempre disponible en:
+%%     https://github.com/gregoriorobles/plantilla-memoria
+%%
+%% Para obtener PDF, ejecuta en la shell:
+%%   make
+%% (las imágenes deben ir en PNG o JPG)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt]{book}
+%\usepackage[T1]{fontenc}
+
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{times}
+\usepackage[latin1]{inputenc}
+\usepackage{upgreek}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{amsmath} 
+\usepackage{pdfpages}
+%\usepackage[dvipdfm]{graphicx}
+
+\usepackage{graphicx}
+\usepackage{float}  %% H para posicionar figuras
+\usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
+\usepackage{latexsym}  %% Logo LaTeX
+\usepackage{cite} % para contraer referencias
+
+\title{Memoria del Proyecto}
+\author{Nombre del autor}
+
+\renewcommand{\baselinestretch}{1.5}  %% Interlineado
+
+\begin{document}
+
+%\renewcommand{\refname}{Bibliografía}  %% Renombrando
+%\renewcommand{\appendixname}{Apéndice}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PORTADA
+
+\begin{titlepage}
+\begin{center}
+\begin{tabular}[c]{c c}
+%\includegraphics[bb=0 0 194 352, scale=0.25]{logo} &
+\includegraphics[scale=0.25]{img/logo_vect.png} &
+\begin{tabular}[b]{l}
+\Huge
+\textsf{UNIVERSIDAD} \\
+\Huge
+\textsf{REY JUAN CARLOS} \\
+\end{tabular}
+\\
+\end{tabular}
+
+\vspace{3cm}
+
+\Large
+INGENIERÍA DE TELECOMUNICACIÓM INGENIERÍA TECNICA EN INFORMÁTICA DE SISTEMAS
+
+\vspace{0.4cm}
+
+\large
+Curso Académico 2014/2015
+
+\vspace{0.8cm}
+
+Proyecto Fin de Carrera
+
+\vspace{2.5cm}
+
+\LARGE
+ENERGY HARVESTING FROM MOVEMENT
+\vspace{4cm}
+
+\large
+Author : Álvaro Collado Alsina \\
+Tutor : Dr. Gregorio Robles (Spain)
+Cotutor: Dr.  Piotr Dziurdzia (Poland)
+\end{center}
+\end{titlepage}
+
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Dedicatoria
+
+\chapter*{}
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+\begin{flushright}
+\textit{Dedicate to \\
+all people who supported me and believed in me}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Agradecimientos
+
+\chapter*{Acknowledgementss}
+\addcontentsline{toc}{chapter}{Acknowledgements} % si queremos que aparezca en el índice
+\markboth{Acknowledgements}{Acknowledgements} % encabezado 
+
+Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja,
+no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo 
+parezca disfrutará tanto de tus logros como tú\ldots Además, la pareja quizás
+no sea para siempre, pero tu madre sí.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Resumen en inglés
+
+\chapter*{Summary}
+\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
+\markboth{SUMMARY}{SUMMARY} % encabezado
+
+Here comes a translation of the ``Resumen'' into English. Please, double check
+it for correct grammar and spelling. As it is the translation of the ``Resumen'',
+which is supposed to be written at the end, this as well should be filled out
+just before submitting.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ÍNDICES %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Las buenas noticias es que los índices se generan automáticamente.
+% Lo único que tienes que hacer es elegir cuáles quieren que se generen,
+% y comentar/descomentar esa instrucción de LaTeX.
+
+%%%% Índice de contenidos
+\tableofcontents 
+%%%% Índice de figuras
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of figures} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+%%%% Índice de tablas
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of tables} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCCIÓN %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Introduction}
+\label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
+\pagenumbering{arabic} % para empezar la numeración de página con números
+
+{\footnotesize
+\begin{verbatim}
+"To convince people to back your idea, you've got to sell it to yourself and know 
+when it's the moment. Sometimes that means waiting. It's like surfing.
+You don't create energy, you just harvest energy already out there."
+\end{verbatim}
+}
+In this chapter I will make a brief introduction of this final project. Explain the motivation that led us to realize as well as the goals I want to achieve. Also expose the memory structure of a short form to put in situation the reader of what will be found throughout the following chapters.
+
+The purpose of this Final Project to be understood and improve the way in which we waste energy, such as the energy that is lost in the movements, body temperature ...
+
+For this reason I decided to get involved with energy harvesting looking for a project that could exploit the energy to so we can improve the utilization of this lost energy. At first I choose to orient toward the human body or something more electronic finally decided to get involved in the simulation, creation and optimization  this prototype autonomous charger on a bicycle.
+
+\section{Context}
+\label{sec:}
+The increase of energy consumption, has created the need to implement new methods of harvesting, conserving and optimally using energy. Movement in devices wheels, motor, are just one example of the multitude of untapped energy source on everyday life, that can be used to get amount of energy. Developing methods to harvest energy from these movements is a particular challenge, because there is a lot of applications for these methods. 
+
+   Movement of wheels provides excellent case-study to explore the energy harvesting related with magnetic fields. In present day there is no way to get energy on bike for bike-computer, gps... A solution to these inconveniences would be a circuit that can get energy from the movement of the bike for the devices.
+
+\section{Motivation}
+\label{sec:}
+It all started when speaking with my tutor in Poland, he commented to me about the research he has being conducted. Dr. Dziurdzia sent me several articles  based on energy harvesting and I was very interesting on the topic from the first sentences I read about it. I started researching about this fear and finally chose energy harvesting with electromagnetic fields.
+
+\section{Objectives}
+\label{sec:}
+The goal of this thesis is to create models to serve as a designs aid and optimization tool for system that harvest energy from movement.
+
+The focus of this thesis is to prove the feasibility of such a system and document the creation of a proof-of-concept prototype. 
+
+\section{Structure}
+\label{sec:}
+On the Chapter 2 of this thesis I will describe what is Energy Harvesting, which are the most commonly used methods and the differents magnetic harvesting that exists.
+
+During Chapter 3 we will make a brief explanation about which are the differents technologies we use during the thesis.
+
+On Chapter 4 I will explain all the main process I  have done for this thesis. Firstly I will describe the simulation I did using LTSpice software and why I change the simulations few times. Also, I will explain the differents Integrated circuit I can use for my thesis and which it is the most suitable for my target.
+ Finally in chapter 5 and 6  It will be shown the results and conclusion about the thesis.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ENERGY HARVESTING %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Energy harvesting}
+\label{sec:energy}
+Energy harvesting is possible to implemented in different ways. Calculate the energy requirements of an aplications is really importan to select the appropriate energy harvesting strategy. This chapter discusses the energy requirements of the bicycle and the selection of an energy harvesting strategy to meet these specifications. The whole theorical calculations and formulas will be on Appendix A.
+
+
+\section{Energy Requirements} 
+\label{sec:seccion1}
+Firstly is necessary to identify the energy requirements of  the system and determining if the energy harvesting is a viable approach to satisfy them. The energy requirements for our objective are specified in terms of power budget. The current system of energy harvesting in bicycle is the dinamo. The new efficent system will provide the rider the chance to have a charger on his bike. The power requirement for a charger is around 3.3V.
+
+\section{Energy Requirements Systems} 
+\label{sec:seccion1}
+There are many ways of harvesting energy from vibrations. Three of the most common methods are : Variable Capacitance Systems, Piezoelectric Material Systems, and Magnetic Induction Systems. Each of these will be studied and their typical power outputs evaluated. Table 2.1 shows a comparison table of the three options. 
+
+\subsection{Variable Capacitance Systems} 
+\label{sec:seccion1}
+
+Variable capacitance systems employ parallel-plate capacitors with movable plates. The
+plates are charged to a specified voltage. The plates are then mechanically moved apart by the input vibrations. Increasing the distance between the plates causes energy to be stored in the capacitor. This energy can be harvested when the plates are brought closer to each other again. The magnitude of energy that can be harvested from such systems is generally on the order of microwatts,
+
+\subsection{Piezoelectric Material Systems} 
+\label{sec:seccion1}
+
+Piezoelectric materials build up a voltage differential across their ends when they are sub-
+jected to mechanical deformation. When energy from vibrations is harnessed to cause defor- mation in such materials, the voltage difference generated can be used to charge a capacitor or other energy-storage device. The magnitude of energy harvested from piezoelectric systems can vary from microwatts to watts,
+
+\subsection{Magnetic Induction Systems} 
+\label{sec:seccion1}
+
+Magnetic induction systems generate power through relative motion between a coil of wire and a magnet. This causes the magnetic flux through the coil to change, which leads the generation of a voltage differential across the ends of the wire coil. This voltage difference can be used to charge a capacitor or other energy-storage device. The magnitude of energy harvested from magnetic induction systems can range up to kilowatts depending on the size of the system. 
+\
+
+\begin{table}[ht]
+\begin{tabular}{|c| |c| |c| |c|}	\hline
+ & Variable Capacitance  & Piezo Material & Magnetic Induction	\\\hline
+Power generation & $\mu$W  & $\mu$W-W & mW-kW	\\	
+Vibration amplitude & $\mu$m & $\mu$-m  & mm-cm	\\
+Driving frequency & Any range & Tens of Hz & Any range 	\\
+Ease of system design & Difficult & Easy & Easy	\\
+Cost & High & High & Modest	\\
+Lifetime  & Low & High & High	\\\hline
+\end{tabular}
+\caption{Comparison of energy harvesting strategies.}
+\end{table}
+\
+
+\section{Magnetic Induction System Design} 
+\label{sec:seccion1}
+
+Magnetic induction systems generate power through relative motion between a coil of wire and a magnet. The result of this is the magnetic flux through the coil to change, which leads the generation of a voltage differential across the ends of the wire coil. This voltage difference can be used to charge a energy-storage device. The magnitude of energy harvested from magnetic induction systems can range up to kilowatts depending on the size of the system. The comparison table (Table 2.1) shows this to be the most cost-effective and promising option for our experiment.
+
+The power that can be harvested by a magnetic induction system depends on many things, including the size and geometric configuration, the magnetic flux density of the magnets, the number of turns of wire in the coil, and the excitation frequency. There are two magnetic induction systems - magnet-through-coil and magnet-across-coils - in order to enable an understanding of how these systems can be designed and optimized for specific applications, this methods will be evaluate.
+
+The objective of analyzing these magnetic induction systems is to calculate their output voltage and power, this parameters are the most interesting one in the project. 
+
+Firstly is necessary to calculate the magnetic field, $H$, in the system. The magnetic field gives the magnitude of magnetic flux density, $B$, and hence the magnetic flux, $A$, through the coils. Once the flux through the coils is known, the open-circuit voltage across them, $V$, can be calculated using Faraday's Law. Ohm's Law and Kirchhoff's Laws are then used to determine the average power, $P$, dissipated through a load resistor attached to the system. Figure 3-1 shows a flowchart of the steps involved in the analysis of magnetic induction systems.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/figura1}
+  \caption{Flowchart of steps}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+\subsection{Magnet-through-coil Induction} 
+\label{sec:seccion1}
+
+Description of the governing equations  for voltage generate by a magnet through a coil. The advantage of this system is the easy way to build it; the disadvantage that the flux reversal of the coil never is complete, and the voltage and power is low. The most common example is a shaker flashlight. The device is powered by the movement of a magnetic relative to a coil when is shaken.
+
+
+The magnet-through-coil induction system consists of a cylindrical coil that translates relative to a bar magnet of height $l_m$ and radius $r_m$. The longitudinal axis of the magnet is set along the y-axis, with its midpoint at the origin. The coil, made of $N$ turns of wire, has height $I_c$, inner diameter $d_min$ and outer diameter $d_max$. The average radius of the coil, $r_c$, is calculated as
+\
+
+\begin{equation}
+r_c=\frac{d_{min}+d_{max}}{4}
+\end{equation}
+\
+
+The average diameter of the coil, $d_c$, is $2r_c$. The cross sectional area of the coil, $A_c$, is calculated as
+\
+
+\begin{equation}
+A_c= \pi r_c^2
+\end{equation}
+\
+
+
+The magnet is fixed in place while the coil moves along the y-axis. The y-coordinate of the lower end of the coil is defined as $h$. The coil is assumed to vibrate with a fixed amplitude, $a$, at a single frequency, $f$, with the motion centered at the y-coordinate dc. Figure 2.2 shows the labeled geometry of this system.
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/figura2}
+  \caption{A cross-sectional view of the magnet-through-coil induction system. The blue arrows represent the magnetization of the magnet}
+  \label{fig:arquitectura}
+\end{figure}
+
+\
+
+\subsection{Magnet-across-coils Induction} 
+\label{sec:seccion1}
+
+The magnets-across-coils induction system consists of a layer of magnets separated by an air gap from a layer of coils. The magnets move across the coils, causing a change in magnetic flux and generating a voltage across the coil ends. The system has three phases: A, B and C. Figure 2.3 shows a schematic of the system to be analyzed. 
+
+Since the permeability of a magnetic material like steel is typically orders of magnitude higher than that of air, the magnetic backing for the coils and magnets is assumed to have infinite permeability. The now simplified problem is to solve for the magnetic fields in the gap between the two layers of magnetically permeable material, where magnetic fields are generated by the magnets and by coil current.
+
+As all the elements of the system are linear, the fields due to the magnets and coils can each be calculated separately and then added by superposition. This breaks the problem into three smaller tasks: (1) calculation of the magnetic field due to the magnets; (2) calculation of the fields due to the flow of current in the coils; and (3) adding them by superposition and finding the total voltage and power generated.
+  
+  
+  \begin{figure}[H]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/figura3}
+  \caption{Magnet-across-coils induction system}
+  \label{fig:arquitectura}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ESTADO DEL ARTE %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{State of the art}
+
+This chapter aims to give an overview of the technical and technological tools that have been taken into account during this project. In this chapter the technologies are presented, in the next chapter is shown how  have been used in this project.
+
+For the preparation of this chapter has been used by multiple sources, mainly web pages, books and articles. All are properly referenced.
+
+\section{LTspice} 
+\label{sec:seccion1}
+
+
+LTspice \footnote{\url{http://www.linear.com}} is a high performance SPICE simulator, schematic capture and waveform viewer with enhancements and models for easing the simulation of switching regulators.  Our enhancements to SPICE have made simulating switching regulators extremely fast compared to normal SPICE simulators, allowing the user to view waveforms for most switching regulators in just a few minutes. Included in this download are LTspice IV, Macro Models for 80\% of Linear Technology's switching regulators, over 200 op amp models, as well as resistors, transistors and MOSFET models. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/figura4}
+  \caption{LTspice circuit Example}
+  \label{fig:arquitectura}
+\end{figure}
+
+\section{Eagle} 
+\label{sec:seccion1}
+
+Eagle\footnote{\url{http://www.cadsoftusa.com/}} is a program to desing diagrams and PCBs. It's famous in every DiY electronics projects, because it has a Freeware license and there are a lot of library with components on internet.
+Eagle has a editor of electronics diagrams, where the components can be putted just with a simple click and with an easy way to route then with wires or labels. It also has a PCBs editor with a very efficiency route, this editor is able to produce GERBER files, that will be used on the production. Eagle has libraries included with several components, also from companies and private users. ULPs are a type of scripts written in a computer language like C programmingyou are able to add custom functions to EAGLE, such as opening and saving  unknown files to the program.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/EagleOpen}
+  \caption{Eagle Board Example}
+  \label{fig:arquitectura}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DISEÑO E IMPLEMENTACIÓN %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Design and Implementation}
+This chapter explains the design of the prototype of my thesis, and also the changes that we do in this prototype during the time. At the same time of the design, are shown corresponding simulations with the design state at that time.
+
+\section{Prototype components } 
+\label{sec:arquitectura}
+This section describe the different kind of components are necessary to implement the final set-up of the laboratory. 
+
+\subsection{Motor} 
+\label{sec:seccion1}
+A motor is an electrical machine that converts the electrical energy into mechanical energy.  There are tow different kind of motors, DC and AC. In our case DC motor is the one used on the prototype. The DC motor gets the electrical energy from a Power Supply.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/motor}
+  \caption{Different motors}
+  \label{fig:arquitectura}
+\end{figure}
+\subsection{Roller} 
+\label{sec:seccion2}
+It is a component designed to roll, in the project its related with the movement of the DC motor shaft.
+
+\subsection{Wheel} 
+\label{sec:seccion3}
+It is a circular component that has rotate on an axial bearing. A bicycle wheel, most commonly a wire wheel,is one wheel designed for a bicycle. A pair is often called a wheelset. A typical modern wheel has a metal hub, wire tension spokes and a metal or carbon fiber rim which holds a pneumatic rubber tire.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/rueda}
+  \caption{Bicycle wheel}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Holder} 
+\label{sec:seccion4}
+The holder is the part where all the rest of the prototype is attach by screws, glue or different fastening methods.
+
+\subsection{Tachometer} 
+\label{sec:seccion5}
+A tachometer is an instrument to measure the rotation speed of shaft, disk or more. Normally this devices shows Revolutions per minute(RPM) on a analog dial, but nowadays also are common the digitals ones.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/tachometer}
+  \caption{Tachometer}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Magnets} 
+\label{sec:seccion6}
+Magnet is a material or object than can generate magnetic fields. This field generate a force that pull from some material and attract others.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/magnets}
+  \caption{magnets}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Coil} 
+\label{sec:seccion7}
+ A coil is an electrical conductor like a wire in spiral or helix. Electromagnetic coils are used, in applications where electric currents produce magnetic fields, in devices like inductors, electromagnets, transformers...
+ 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/coil}
+  \caption{coils}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Transformers} 
+\label{sec:seccion8}
+A transformer is an electrical device that transfers energy between two or more circuits through electromagnetic induction. Commonly, transformers are used to increase or decrease the voltages of alternating current in electric power applications.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/transformer}
+  \caption{transformers}
+  \label{fig:arquitectura}
+\end{figure}
+\subsection{Integrated Circuits} 
+\label{sec:seccion9}
+
+An integrated circuit is a joint of circuits on a chip of semiconductor material. This is smaller than a typical circuit, it has a lot of transistors and other components and is not much bigger than a fingerprint.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/IC}
+  \caption{integrated circuits}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Components for IC} 
+\label{sec:seccion10}
+Capacitors and resistor are elecitrical components needed on the IC circuit.
+
+\section{Uses of components of the prototype } 
+\label{sec:arquitectura}
+
+\subsection{Motor} 
+\label{sec:seccion1}
+
+In the prototype, a motor is arranged to generate the movement that would be generated by a person pedaling the bicycle. This movement is the mechanical energy that the DC motor generates on the shaft by the rotation of this part.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/motor1}
+  \caption{DC motor}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+\subsection{Roller} 
+\label{sec:seccion2}
+
+In picture 4.8 is possible to see that there is a roller to move the wheel in a better way, because the DC motor generates a movement that can?t move the wheel with the shaft. In order to have a good movement of the wheel, it was prepare like this the DC motor with this roller.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/roller}
+  \caption{Roller}
+  \label{fig:arquitectura}
+\end{figure}
+\
+\subsection{Wheel} 
+\label{sec:seccion3}
+Is the main part of the prototype which will move and generate the magnetic field. This movement is produced by the whole set of DC Motor and Roller. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/prototipo3}
+  \caption{wheel of the prototype}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Tachometer} 
+\label{sec:seccion5}
+The tachometer will  get the value of the RPM of the wheel. To use the tachometer is necessary to have a small reflective material on the wheel.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/tachometer1}
+  \caption{tachometer}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Magnets} 
+\label{sec:seccion6}
+The magnets will be distribute around the rim to produce a constant magnetic field. There are one of the important part of the prototype to generate our final voltage.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/magnetsfinal}
+  \caption{magnets on the wheel}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+\subsection{Coil} 
+\label{sec:seccion7}
+The coil will be stablishh close to the rim of the bicycle. The coil will generate electrical energy because of the movement of the magnets. First we use coils that we can have on the market like the one on Figure 4.13 and also figure 4.14.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/coil1}
+  \caption{First coil}
+  \label{fig:arquitectura}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/coil2}
+  \caption{Second coil}
+  \label{fig:arquitectura}
+\end{figure}
+
+Finally we decided to create our own coil. We create this coil with a wire of 0.5 milimeter of thickness, and with 100 round. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/coilfinal}
+  \caption{Costume coil}
+  \label{fig:arquitectura}
+\end{figure}
+
+Inside the coil from Figure 4.15 we put inside some ferromagnetics as is shown in the Figure 4.16.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/ferromagnets}
+  \caption{Ferromagnetic Material}
+  \label{fig:arquitectura}
+\end{figure}
+
+\subsection{Transformers} 
+\label{sec:seccion8}
+The use of the transformers in the prototype its really important because they will increase the value of the voltage obtained on the coil to a necessary voltage for properly operation of the IC.
+
+
+\subsection{Integrated Circuits} 
+\label{sec:seccion9}
+The integrated circuits are circuits focus on energy harvesting that can convert a really slow voltage into one enough to charge a battery.
+
+
+\section{Design and simulation historial } 
+\label{sec:arquitectura}
+
+The first step in the project, was to mount the prototype for the laboratory and set up everything ( dc motor, wheel, holder, roller) to start getting some values. This first part it is really important because is useful to know the range of voltage I will have on the prototype. 
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm, keepaspectratio]{img/prototipo3}
+  \caption{First prototype}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+With the first range of voltage's value I  was able to perform a simulation on LTSpice based on LTC3108 converter. Firstly the simulation with the converter was focus to obtain in which range we can start simulating, so I decide with the same configuration of the circuit change the values of the voltage from 1V 3V or 5V and changing the frequency of the $V_{in}$.\footnote{All results about simulation will be describe in next chapter.}
+At this moment I was just checking which IC will be more suitable for my prototype, so looking data sheet of LTC3108 \footnote{Data sheet LTC3108 is in the Appendix B.}, it  is possible to verify the different kind of application.
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/simulation1}
+  \caption{Simulation circuit 1}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+As can be verified on the data sheet  the first configuration was wrong. It is not necessary to connect $C_2$ to SW and also the values of the capacitor are not correct. So as we can see in picture 4.19 I take out the battery because I don't need for the simulation. Just only to get the right value at the $V_{out}$ will be perfect for achieve our target.
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/simulation2}
+  \caption{Simulation circuit 2}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+
+At the same time I was working on the simulation with LTSpice, I was working to improve the prototype with different coils to generate more voltage and also to get a more stable voltage. Finally I decided to create my own coil\footnote{Values of the homemade coil will be describe in next chapter} and I attach the coil to the holder of my prototype to have it stable close to the rim of the wheel.
+\
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/finalsetup}
+  \caption{Homemade coil attached to the prototype}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+The next modification in the simulation circuit was to attach a transformer just to get a greater value of the $V_{in}$ in the converter, because I realised that the voltage with the higher speed it was around 1.1V. So next changes in the circuit were related to the different ratio of the transformer 1:20, 1:50 or 1:100. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/ratio20}
+  \caption{Simulation circuit ratio 1:20}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/ratio100}
+  \caption{Simulation circuit ratio 1:100}
+  \label{fig:arquitectura}
+\end{figure}
+\
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RESULTADOS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Results}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONCLUSIONES %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{conclusions}
+\label{chap:conclusiones}
+
+
+\section{Achievement of objectives}
+\label{sec:consecucion-objetivos}
+
+Esta sección es la sección espejo de las dos primeras del capítulo de objetivos,
+donde se planteaba el objetivo general y se elaboraban los específicos.
+
+Es aquí donde hay que debatir qué se ha conseguido y qué no. Cuando algo no
+se ha conseguido, se ha de justificar, en términos de qué problemas se han
+encontrado y qué medidas se han tomado para mitigar esos problemas.
+
+
+\section{Application of learning}
+\label{sec:aplicacion}
+
+Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado
+en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y
+comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+
+\begin{enumerate}
+  \item a
+  \item b
+\end{enumerate}
+
+
+\section{Lessons Learned}
+\label{sec:lecciones_aprendidas}
+
+Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
+
+\begin{enumerate}
+  \item a
+  \item b
+\end{enumerate}
+
+
+\section{Future works}
+\label{sec:trabajos_futuros}
+
+Ningún software se termina, así que aquí vienen ideas y funcionalidades
+que estaría bien tener implementadas en el futuro.
+
+Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
+
+
+\section{Personal Ratings}
+\label{sec:valoracion}
+
+Finalmente (y de manera opcional), hay gente que se anima a dar su punto de
+vista sobre el proyecto, lo que ha aprendido, lo que le gustaría haber aprendido,
+las tecnologías utilizadas y demás.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APÉNDICE(S) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\appendix
+\chapter{Theorical Calculation}
+\label{app:manual}
+
+
+\section{Magnetic flux Generated by the Bar Magnet}
+\label{sec:Mag Flux}
+The bar magnet is modeled as two point magnetic charges situated at $l_{m}/2$ on the y- axis. The magnitude of the magnetic point charges, $q_m$, is obtained by integrating the magnetization, $\mu M$, over the cross-sectional areas of the magnet ends. Thus,
+
+\begin{equation}
+q_m= \mu _o M \pi r^2_m
+\end{equation}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura5}
+  \caption{Magnetic flux density from a bar magnet.}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+
+
+The magnetic flux density at a given point, B, depends on two terms: the magnetic field strength $H_m$; and the local magnetization. The local magnetization is M inside the magnet and 0 outside. Figure A.1 shows how the contributions from these two terms add up to the magnetic flux density:
+\begin{equation}
+B= \mu_0 (H_m + M)
+\end{equation}
+
+As shown in Figure A.1, a bar magnet has a uniform magnetic charge density on its ends at $x = +- l_m/2$. We make the simplifying assumption that the bar magnet can be modeled as two point magnetic charges located on the y-axis at $x = +- l_m/2$. Thus, while the $\mu M$ term we calculate is exact, the $\mu H$ term is an approximation because it comes from a point- charge assumption. We will concentrate on the calculation of $\mu_0H_m$ and then add it to the simple $\mu_0M$ term towards the end to arrive at B inside the magnet. Outside the magnet the $B =\mu_0H$ alone.
+
+The total flux emanating from the magnetic charge is $q_m$. The resultant flux through any given turn of wire is the fraction of the total flux that passes through the area enclosed by the wire turn; and this flux is numerically equal to the same fraction of $q_n$. If a sphere is imagined around the point charge, and a single wire turn intersects the sphere to delineate a spherical cap (Figure A.2), 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura6}
+  \caption{Point charge and single wire turn geometry}
+  \label{fig:arquitectura}
+\end{figure}
+
+then it follows from Gauss' Law that the magnetic flux through the wire turn is equal to the magnetic flux escaping through the cap. Thus, the magnetic flux through the wire turn is proportional to the ratio of the surface area of the cap to the surface area of the entire sphere. For a sphere of radius R, with a distance H from its center to the plane of the coil, the surface area of the cap formed is
+
+\begin{equation}
+A_{cap}= 2 \pi R(R - H)
+\end{equation}
+
+
+Therefore, the magnetic flux through a single wire turn of radius $r_c$ at a height H above a point charge $q_m$ is given by
+
+\begin{equation}
+\phi =q_m 2 \pi  R(R -H) / 4 \pi R^2
+\end{equation}
+
+The magnetic flux through a wire turn in the induction system depends on contributions from the magnetic charges at both ends of the bar magnet. The labeled geometry of the magnetic charges and a single wire turn is shown in Figure A.3. The magnetic charges have opposite signs to represent the North and South poles of the magnet, with $q_1$ positive and $q_2$ negative. In addition, the direction of the magnetic flux through the wire turn changes when a magnetic charge passes from one side of the wire turn to the other. Sign functions are added to Equation A.4 to account for these changes in the magnetic flux directions. The magnetic flux contributions  and  from the magnetic charges $\phi_1$ and $\phi_2$ respectively are
+
+\begin{equation}
+\phi_{1}= sign (h-\frac{l_m}{2}) \frac {-q_m (\sqrt {r_c^2 + (h- \frac{l_m}{2})^2} -| h -\frac{l_m}{2}|)  } {2\sqrt{r_c^2 + (h-\frac{l_m}{2})^2}}
+\end{equation}
+
+\begin{equation}
+\phi_{2}= sign (h+\frac{l_m}{2}) \frac {q_m (\sqrt {r_c^2 + (h+ \frac{l_m}{2})^2} -| h +\frac{l_m}{2}|)  } {2\sqrt{r_c^2 + (h+\frac{l_m}{2})^2}}
+\end{equation}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura7}
+  \caption{Magnetic dipole and single wire turn geometry.}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+$\phi_1$ and $\phi_2$ are the fluxes from the point charges at the ends of the bar magnet; when they are divided by the area of the wire turn, they sum up to the $\mu_0H_m$ component of B. In addition, there is magnetic flux inside the bar magnet due to its magnetization; the magnitude of this flux is $\mu_0M\pi r_m^2$, which from Equation A.1 is equal to $q_m$. Therefore the flux due to $\mu_0$; term can be expressed as:
+
+
+\begin{equation}
+\phi_M= \left\{ \begin{array}{lcc}
+             q_m &  si & -l_m/2< y < l_m/2  \\
+             \\ 0 &  si & y < -l_m/2 U l_m/2 < y 
+             \end{array}
+   \right.
+\end{equation}
+
+The total magnetic flux through a single wire turn at height $h$ is the sum of $\phi_1$, $\phi_2$ and $\phi_M$ from Equation A.5 , A.6 and A.7 respectively. This sum is multiplied by the number of turns of wire per unit height, $N/l_c$, and a small incremental height, $dy$, to obtain the magnetic flux through all the wires coiled at height $h$. The total magnetic flux through the coil of length $l_c$ is the integral of the magnetic flux over the height of the coil:
+
+
+\begin{equation}
+\phi_{Total}= \int_{h}^{h+l_c} \frac{N(\phi_1+\phi_2+\phi_M)}{l_c}d_y
+\end{equation}
+
+\subsection{Coil Inductance and Resistance}
+\label{sec:Coil}
+
+The inductance of the coil, $L_C,$ is a function of the number of turns, cross-sectional area, and height of the coil. The inductance for a long thin coil, where $l_c > \sqrt{A_c}$, is given by:
+
+\begin{equation}
+L_c = \frac{\mu_0N^2 A_c}{l_c} = \frac{\mu_0 \pi N^2 r_c^2}{l_c}
+\end{equation}
+
+
+The resistance of the coil, $R_c,$ depends on the resistivity of the wire material, $\rho$, the length of the coiled wire, $I_w$,, and the cross-sectional area of the wire, $A_w$,. If the radius of the wire is $r_w$, we have
+
+\begin{equation}
+l_w =N\pi d_c 
+\end{equation}
+\begin{equation}
+A_w = \pi r_w^2 
+\end{equation}
+\begin{equation}
+R_c = \frac{\rho l_w}{A_w} = \frac{\rho(N2\pi r_c}{\pi r_c^2}= \frac{2N\rho r_c}{r_w^2}
+\end{equation}
+
+If $R_c  >> 2\pi f L_C$ , the effects of the system inductance are negligible in comparison to those of the system resistance. Since this relation often holds true in real systems, the subsequent analysis assumes that the resistance effects dominate the system
+
+\section{Voltage and Power Generation}
+\label{sec:Vol and Pow}
+
+Faraday's Law states that the open-circuit voltage induced across a turn of wire is the negative integral of the time-change in magnetic flux over the cross-sectional area of the turn. By the chain rule of differentiation, the time-change in magnetic flux can be separated into two multiplicative terms - the change in magnetic flux over height, and the change in coil height over time (in other words, the velocity of the coil). Thus,
+
+\begin{equation}
+V= \int \frac{d\phi_total)}{dt}d_A= \int \frac{d\phi_total)}{dh}\frac{dh)}{dt}d_A
+\end{equation}
+
+
+
+The formula for $\frac{d\phi_total)}{dh}$ can be calculated by differentiating Equation A.8 to arrive at
+
+\begin{equation}
+\frac{d\phi_total}{dh}= \frac {d}{dh} \int_{h}^{h+l_c} \frac{N(\phi_1+\phi_2)}{l_c}d_h
+\end{equation}
+
+Given the velocity of the coil, $v$, the open-circuit voltage induced across the coil can be calculated:
+
+\begin{equation}
+V= \int_{h}^{h+l_c} \frac{vN(\phi_1+\phi_2)}{l_c}d_A
+\end{equation}
+
+$P$ is the power delivered by the system to a load, modeled here as a resistor $R_I$. Since the system inductance is assumed to be negligible, the open-circuit voltage generated across the ends of the coil is now applied across the resistances $R_c$, and $R_L$ in series. Then, Kirchoff's Voltage Law implies that
+\begin{equation}
+V= V_c +V_L
+\end{equation}
+
+where $V_c$, and $V_L$ are the voltages across the coil and load resistor respectively. $I$ is the resultant current flowing through the circuit. Ohm's Law states that the voltage across a resistor is the product of the resistance and the current flowing through it; applying this to Equation A.16 allows us to solve for the value of $I$:
+
+\begin{equation}
+V= I(R_C+R_L)
+\end{equation}
+
+\begin{equation}
+I= \frac{V}{(R_C+R_L)}
+\end{equation}
+
+The instantaneous power dissipated across the load resistance is the product of the current
+flowing through it and the voltage across it. This gives
+
+\begin{equation}
+P = V_lI = (R_lI^2)
+\end{equation}
+
+and substituting the value for $I$ from Equation A.18,
+
+\begin{equation}
+P = \frac{R_L V^2}{(R_C + R_L)^2}
+\end{equation}
+
+Since $R_L$ is fixed, we differentiate $P$ with respect to $R_L$ to find the maximum:
+ 
+ \begin{equation}
+\frac{dP}{dR_l}=\frac{V^2}{(R_c+R_l)^2} - \frac{2R_lV^2}{(R_c+R_l)^3}=0 ; (R_c+R_l)-2R_l=0;   R_l=R_c 
+\end{equation}
+
+
+Hence, the load resistance should be matched to the coil resistance in order to extract the maximum possible power from the system.
+
+\subsection{Magnetic Field Generated by the Magnets}
+\label{sec: field}
+
+Within the system with magnets, there are two regions: Region A, between $x = 0$ and $x = X_A$, with the magnets; and Region B, between $x = 0$ and $x = -X_B$, with the air gap and coils. These regions have distinct magnetic fields, $H_A$ and $H_B$ respectively. The interface between the magnetic region and the air gap provides the boundary conditions on the fields in these two regions. The x-axis is defined such that $x = 0$ at the interface between the magnets and air.
+The magnetic charge is concentrated on the planes at the ends of the magnets at $x = 0$. The magnetic charge density on the z-axis is represented by $\phi_M(z)$. Figure A.4 shows a schematic of the magnet placement and the resulting graph of $\phi_M(z)$ as a function of z.
+The charge density function from Figure A.4 can be represented by a Fourier series. Then we can solve for the magnetic field caused by a sine wave charge distribution, and use superposition to get the total field.
+
+The charge density waveform can be represented by
+
+ \begin{equation}
+\sigma_M= a_{0(\phi_M} + \sum_{k=1}^{\infty} (a_{k(\phi M)} cos ( \frac{2 \pi kz}{Z}) + b_{k(\phi M)}  sin ( \frac{2 \pi kz}{Z}))
+\end{equation}
+
+\
+
+where Z is the spatial period of the magnetic charge density function and the Fourier coeffi- cients are:
+ \begin{equation}
+ a_{0(\sigma_M)} = 0
+\end{equation}
+
+ \begin{equation}
+ a_{k(\sigma_M)} = 0
+\end{equation}
+
+\begin{equation}
+b_{k(\sigma_M)}= \left\{ \begin{array}{lcc}
+             \frac {4|sigma_{max}}{k\pi}cos{\frac {\pi kd}{l+2d}} &  si & $for odd k.$  \\
+             \\ 0 &  si & $for even k.$
+             \end{array}
+   \right.
+\end{equation}
+
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura8}
+  \caption{Schematic of the magnet placement and the resulting charge density on the z-axis.}
+  \label{fig:arquitectura}
+\end{figure}
+
+Since the magnetic charge density waveform is reducible to a sum of sines, we solve for
+the magnetic fields resulting from a sinusoidal charge density ($\sigma_{Mk} = b_{k(\sigma_M)} sin( \frac{2\pi kz}{Z})$) on the z-axis. For a system with current $J$, Maxwell's Equations state that:
+\
+ \begin{equation}
+ \nabla \times H = J
+\end{equation}
+ \begin{equation}
+ \nabla * B = 0
+\end{equation}
+\
+Since we are solving the part of the superposition that only considers the fields due to the magnets, there is no current in the system and $J$ in Equation A.26 is zero. This means that the curl of $H$ is zero, which implies that $H$ is the negative gradient of some scalar magnetic
+potential function $\psi$.
+ \begin{equation}
+ \nabla \times H = 0
+\end{equation}
+ \begin{equation}
+ \Rightarrow H = - \nabla_\psi
+\end{equation}
+\
+From Equations A.2, A.27, A.28 and A.29 we get
+ \begin{equation}
+\nabla * \mu (-a \nabla \psi + M) = 0
+\end{equation}
+
+\
+Because the magnetization $M$ of a magnet is a constant, and $M$ of air is zero, in both cases $\nabla * M$ vanishes. Thus we get the simplified equation
+ \begin{equation}
+\nabla^2\psi = 0
+\end{equation}
+\
+This equation must be solved for regions $A$ and $B$ to obtain the corresponding magnetic potentials ($\psi A$ and $\psi B$) in those regions. To satisfy Equation A.31, the solutions must be of the form $\psi_A = [\alpha_1 sin {\frac{2\pi kz}{Z}} + \alpha_2 cos {\frac{2\pi kz}{Z}}] x [\alpha_3 sinh {\frac{2\pi kz}{Z}} + \alpha_4 cosh {\frac{2\pi kz}{Z}}]$  
+$\psi_B= [\beta_1 sin {\frac{2\pi kz}{Z}} + \beta_2 cos {\frac{2\pi kz}{Z}}] x [\beta_3 sinh {\frac{2\pi kz}{Z}} + \beta_4 cosh {\frac{2\pi kz}{Z}}]$
+
+
+The values of the constants in these equations are obtained by applying the boundary conditions on the regions. The first two boundary conditions arise at the interfaces with the magnetically permeable backings at $x = x_A$ and $x = -x_B$. Given the absence of surface currents at these interfaces, the tangential magnetic field, $H_z$ is conserved. 
+
+We have assumed that the materials have $\mu = \infty$; therefore $B = \mu H$ dictates that $H = 0$ in order for $B$ to be finite. Since $H = 0$, the tangential field $H_z$ must be zero at these interfaces. The interface between the magnets and air at $x = 0$ is considered next. The conservation of the tangential magnetic field, $Hz$, (given the absence of surface currents at x = 0), and the conservation of the normal magnetic flux, $B_x$, yield two more boundary conditions for the system. In conclusion, the boundary conditions applicable are :
+\
+
+1. $H_{A_z} = 0  $ at  $x = x_A$
+\
+
+2. $H_{B_Z} = 0 $ at $ x= -x_B.$
+\
+
+3. $H_{A_z} = H_{B_z}$  at $ x = 0 $
+\
+
+4. $\mu_0 H_{A_z} = H_{B_z}$ at $x = 0$
+\
+
+Solving for the values of the constants is now a matter of algebraic manipulation. Boundary conditions (1) and (2) state that $H_{A_z}$ and $H_{B_z}$, are zero-valued at $x_A$ and $-x_B$ respectively. $H_{A_z}$ and $H_{B_z}$, are the partial derivatives of $-\psi_A$ and  $\psi_B$ with respect to $z$, so for them to be zero at $x_A$ and $-x_B$ respectively, the x-dependent components of  $-\psi_A$ and  $\psi_B$ must be zero. 
+
+This means that the x-dependent components of the magnetic potentials must be sinh functions, since cosh functions cannot be zero-valued at any points. This means that the constants $\alpha_2$, $\alpha_4$ , $\beta_2$ and $\beta_4$ are zero. Constants $\alpha_1$ and $\alpha_3$ can be combined into $\alpha$, and $\beta_1$ and $\beta_3$ into $\beta$.
+
+ \begin{equation}
+\psi_A = \alpha sin(\frac {2\pi kz}{Z}) sinh(\frac{2\pi (x-x_A)}{Z})
+\end{equation}
+
+ \begin{equation}
+\psi_B= \beta sin(\frac {2\pi kz}{Z}) sinh(\frac{2\pi (x+x_B)}{Z})
+\end{equation}
+\
+
+Now we have two equations (boundary conditions (3) and (4)) and two unknowns (the values of the two constants $\alpha$ and $\beta$); the following steps show the rearrangement of variables to arrive at the answer.
+
+\begin{equation}
+\alpha=\frac {b_{k(\alpha_M)} sinh(\frac{2\pi kzx_B}{Z})}{\frac{2\pi kz \mu_0}{Z}(sinh(\frac{2\pi kz x_A}{Z}) cosh(\frac{2\pi kz x_B}{Z}) + sinh(\frac{2\pi kz x_B}{Z}) cosh(\frac{2\pi kz x_A}{Z}))}
+\end{equation}
+\
+
+\begin{equation}
+\beta=\frac {-b_{k(\alpha_M)} sinh(\frac{2\pi kzx_A}{Z})}{\frac{2\pi kz \mu_0}{Z}(sinh(\frac{2\pi kz x_A}{Z}) cosh(\frac{2\pi kz x_B}{Z}) + sinh(\frac{2\pi kz x_B}{Z}) cosh(\frac{2\pi kz x_A}{Z}))}
+\end{equation}
+\
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura9}
+  \caption{Schematic of the coil placement and the tangential magnetic field at $-x_B$ resulting from current $i$ flowing through all three phases of coils.}
+  \label{fig:arquitectura}
+\end{figure}
+
+From equations A.22, A.32 and A.33, the total magnetic potential due to the magnets is :
+
+\begin{equation}
+\psi_{A_{(magnets)}} = \sum_{k=1}^{\infty} \alpha sinh(\frac{2\pi k (x - x_A)}{2(l+2d)}) sin(\frac{2\pi k z}{2(l+2d)})
+\end{equation}
+\
+
+\begin{equation}
+\psi_{B_{(magnets)}} = \sum_{k=1}^{\infty} \beta sinh(\frac{2\pi k (x + x_B)}{2(l+2d)}) sin(\frac{2\pi k z}{2(l+2d)})
+\end{equation}
+\
+
+\subsection{Magnetic Field Generated by Coil Current}
+\label{sec: field}
+
+For the calculation of the fields due to current flowing through the coils, the magnets are ignored. The current through the coils is approximated as a surface current at $x = -x_B$. This means that there is no difference between Region A and Region B for this calculation. Thus we solve for the magnetic fields from the coils in the region bounded by $x_A$ and $-x_B$. Figure A.5 shows a graph of the tangential magnetic field $H_z$, at $-x_B$ that would result from a current $i$ flowing through all three phases of coils.
+
+The tangential magnetic field at the surface of the magnetic backing is the sum of the contributions from the three phases A, B and C. The width of each phase is $2g$, and the gap between phases is $t$. Since the three phases are symmetric, we can solve for one phase and then use superposition to add in the effects from the other two phases. In particular, we will solve for the contribution from current i flowing through the phase A coils. The tangential magnetic field, $H_z$, at plane $x = -x_B$, due to the current $i$ passing through the phase A coils, can be expressed as
+\begin{equation}
+H_z = a_{0(H_z)} + \sum_{k=1}^{\infty} [a_{k(H_z)}cos (\frac {2\pi kz}{Z}) + b_{k(H_z)} sin (\frac {2\pi kz}{Z})  ]
+\end{equation}
+\
+
+where Z, the spatial period of the tangential magnetic field function, is 6(2g + t), and the Fourier coefficients are
+
+\begin{equation}
+a_{0(H_z)} = 0
+\end{equation}
+\
+
+\begin{equation}
+a_{k(H_z)} = \left\{ \begin{array}{lcc}
+             \frac{4i}{gk\pi} sin (\frac {\pi kg}{3(2t+g)} ) & $for odd k$  \\
+             \\ 0 & $for even k$ 
+             \end{array}
+   \right.             
+\end{equation}
+\
+
+\begin{equation}
+b_{k(H_z)} = 0
+\end{equation}
+\
+
+Since $Hz$ can be expressed as a sum of cosines, we can solve for the contribution from a single harmonic ($H_{zk} = a_{k(Hz)} cos( \frac {2\pi kz}{Z})$ and then use superposition to obtain the complete
+solution. Similarly to the case of the magnets, the boundary conditions on the magnetic field due to coil current are:
+\
+
+\
+
+1. $H_z = 0  $ at  $x = x_A$
+\
+
+2. $H_z = a_{k(Hz)} cos( \frac {2\pi kz}{Z})  $ at $ x= -x_B.$
+\
+
+\
+
+Within the region, similar to the case with the magnets,
+\
+
+\
+
+$ \nabla \times H = 0 \Rightarrow H = -  \nabla \psi \Rightarrow  \nabla^2 \psi=0$
+\
+
+
+
+The solution of this equation is the magnetic potential (0) due to the current in the coils, and must be of the form
+\
+
+$\psi = [D_1 sin(\frac {2\pi kz}{Z})+ D_2 cos(\frac {2\pi kz}{Z})] \times [D_3 sinh(\frac {2\pi kx}{Z})+ D_4 cosh(\frac {2\pi kx}{Z})]$.
+
+\
+
+Since boundary condition (1) states that $H_z$, must be zero at $x_A$, the x-dependent component of the magnetic potential must be a sinh function.
+
+\
+
+
+$\psi = D sin(\frac{2\pi kz}{Z}) sinh (\frac {2\pi k(x-x_A)}{Z})$
+\
+
+$\Rightarrow H_z \mid_{x=x_A}  = - \frac {2\pi kD}{Z} cos (\frac{2\pi kz}{Z}) sinh (\frac {2\pi k(x-x_A)}{Z}) \mid_{x=x_A} = 0 $
+\
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura10}
+  \caption{Three-phase coil arrangement geometry.}
+  \label{fig:arquitectura}
+\end{figure}
+
+
+From boundary condition (2), $H_z$  is $a_{k(H_z)} cos (\frac{2\pi kz}{Z})$ at $-x_B$.
+
+\begin{equation}
+\begin{aligned}
+H_z \mid_{x=-x_B}  = - \frac {2\pi kD}{Z} cos (\frac{2\pi kz}{Z}) sinh (\frac {2\pi k(x-x_A)}{Z}) \mid_{x=x_A} = a_{k(H_z)}cos(\frac {2\pi kz}{Z}) \\
+D= \frac {a_{k(H_z)} Z}{2 \pi k sinh(\frac {2\pi k(x_A + x_B)}{Z})}
+ \end{aligned}
+\end{equation}
+\
+
+\begin{equation}
+\psi_{coils} = \sum_{k=1}^{\infty} D sinh (\frac{2\pi k(x - x_A)}{6(2g+t)}) sin (\frac{2\pi kz}{6(2g+t)})
+\end{equation}
+\
+
+\subsection{Coil Self-Inductance, Mutual Inductance, and Resistance}
+\label{sec: coil}
+Equation A.43 allows us to calculate the magnetic potential created by the flow of current through the coils; the magnetic flux density generated can be obtained from this magnetic potential.
+\
+
+$B_{coils} = \mu_0 H_{coils} = - \mu_0 \nabla \psi_{coils}$
+
+\
+
+
+The magnetic fluxes through the coils due to current through them are $\lambda_{c(A)}$,  $\lambda_{c(B)}$ and
+ $\lambda_{c(C)}$ through phase A, B and C respectively, and can be calculated by multiplying the magnetic flux density and the area of the coils. Figure A.6 shows the geometry of the three phases. For example, the magnetic flux through phase A coils is:
+\
+
+
+$\lambda_{c(A)}= B_{coils}  \cdot A_A$
+
+\
+
+
+
+where $A_A$ is the area of the phase A coils. Since the coils lie in the $x = -x_B$ plane, only he x-component of the magnetic flux density will pass through them; hence $B_{coils} · A_A = B_{x(coils)}A_A$.
+
+The self-inductance, $L$, of a coil is defined as the magnetic flux generated through the coil due to the flow of a unit current through it. The mutual inductance between a pair of coils, $M$, is defined as the magnetic flux generated through one coil due to the flow of a unit current through the other. The magnetic flux through each phase is influenced by the current flowing through every phase. Since everything is symmetric across phases, the self-inductance of each phase and the mutual inductance between each pair of phases is the same. Equation  defines the dependence of the magnetic fluxes and the current through the coils.
+
+\begin{equation}
+\begin{bmatrix}
+\lambda_{c(A)}\\
+\lambda_{c(B)}\\
+\lambda_{c(C)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+L & -M  & -M  \\
+-M  & L  & -M\\
+-M & -M & L 
+\end{bmatrix}
+\begin{bmatrix}
+i_A \\
+i_B\\
+i_C
+\end{bmatrix}
+\end{equation}
+\
+
+
+To calculate the value of $L$ and $M$, we consider the flux linked by a phase A coil and a phase B coil due to a current $i$ flowing through the phase A coil (when $i_B$ and $i_C$ are 0):
+\
+
+\
+
+$\lambda_{c(A)}= B_{x(coils)} A_A = nN \int {\frac{-l}{2}}{\frac{l}{2}} \mu_0 H_{x(coils)} wdz = Li$
+\
+
+$\lambda_{c(B)}= B_{x(coils)} A_B = nN \int {\frac{2g+t-l}{2}}{\frac{2g+t+l}{2}} \mu_0 H_{x(coils)} wdz = Li$
+\
+
+\
+
+The integrals are the flux through one coil and one turn of wire; to get the total flux they are multiplied by the number of coils (which should be the same as the number of magnetic poles, $n$), and the number of turns of wire (N) in each coil. The turns of wire in the coil are approximated into a pointwise lumped distribution; therefore we just multiply by the number of wire turns instead of integrating over the physical width of the turns ($2g$ for each phase). Rearranging the terms, we get:
+
+\
+
+\begin{equation}
+L = \frac{nN}{i} \int {\frac{-l}{2}}{\frac{l}{2}} \mu_0 H_{x(coils)} wdz.
+\end{equation}
+\
+
+\begin{equation}
+M = \frac{nN}{i} \int {\frac{-l}{2}}{\frac{l}{2}} \mu_0 H_{x(coils)} wdz.
+\end{equation}
+\
+
+
+Since $H_{x(coils)}$ as $a$ function of $i$ can be calculated from Equation A-43, the values of $L$ and $M$ can be found.
+
+The resistance of all the coil phases should be the same since they are the same pattern displaced in space. The resistance of each phase depends on the resistivity of the wire material, $\rho W$, the cross-sectional area of the wire, $A_W$, and the total length of the wire, $l_w$. The length of wire used will depend on the number of turns of wire and on the pattern of winding.
+\
+
+\begin{equation}
+R= \frac {\rho _w l_w}{A_w}
+\end{equation}
+\
+
+
+\subsection{Voltage and Power Generation}
+\label{sec: volt}
+
+The magnetic fields in the system are linear; therefore superposition can be used and the total magnetic field is the sum of the magnetic fields from the magnets and the coils.
+\
+
+\begin{equation}
+H_{total} = \left\{ \begin{array}{lcc}
+             - \nabla (\psi_{A(magnets)} + \psi_{coils} )&  0 \le x \le x_A   \\
+             \\ - \nabla (\psi_{B(coils)} + \psi_{magnets} ) &  0 \ge x \ge -x_B
+             \end{array}
+   \right. \\
+ B_{total} = \mu H_{total}.          
+\end{equation}
+
+The magnetic fluxes through the coils due to the magnets,$\lambda_{m(A)}$, $\lambda_{m(B)}$) and $\lambda_{m(C)}$ through phases A, B and C respectively, are calculated by multiplying the magnetic flux density and
+the area of the coils.
+\
+
+\begin{equation}
+\begin{bmatrix}
+\lambda_{m(A)}\\
+\lambda_{m(B)}\\
+\lambda_{m(C)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+B_{x(magnets)}A_A \\
+B_{x(magnets)}A_B \\
+B_{x(magnets)}A_C
+\end{bmatrix}
+\end{equation}
+\
+
+By superposition, the total magnetic flux through the coils is the sum of the fluxes generated by the magnets and by the flow of current through the coils.
+
+\
+\begin{equation}
+\begin{bmatrix}
+\lambda_A\\
+\lambda_B\\
+\lambda_C
+\end{bmatrix}
+=
+\begin{bmatrix}
+\lambda_{c(A)}\\
+\lambda_{c(B)}\\
+\lambda_{c(C)}
+\end{bmatrix}
++ 
+\begin{bmatrix}
+\lambda_{m(A)}\\
+\lambda_{m(B)}\\
+\lambda_{m(C)}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+L & -M  & -M  \\
+-M  & L  & -M\\
+-M & -M & L 
+\end{bmatrix}
+\begin{bmatrix}
+i_A \\
+i_B\\
+i_C
+\end{bmatrix}
++
+\begin{bmatrix}
+B_{x(magnets)}A_A \\
+B_{x(magnets)}A_B \\
+B_{x(magnets)}A_C
+\end{bmatrix}
+\end{equation}
+\
+
+
+In order for these equations to hold true, it is important that the magnetic backing of the coils does not saturate due to the magnetic flux through it. Figure A.7 shows the path of the flux through the magnetically permeable backings. $B \cdot A$ should be calculated for the area under half a magnet, and should be equated to $B_{new} \cdot A_{new}$, where $A_{new}$ is the cross-sectional area of the magnetic backing through which the flux will pass. A $BH$ chart of the backing material should be consulted to confirm that $B_{new}$ will not cause it to saturate. A similar check should be conducted for the backing of the magnets.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=11cm, keepaspectratio]{img/figura11}
+  \caption{Path of the magnetic flux in a magnet-across-coils system.}
+  \label{fig:arquitectura}
+\end{figure}
+
+Faraday's law is invoked again in order to calculate the voltage generated across the coils.
+$\lambda_A$, $\lambda_B$ and $\lambda_C$ are known as a function of position, so $\frac {d\lambda}{dz}$ can be calculated for each phase. These values, when multiplied by the velocity of the coil $(\frac {dz}{dt})$ ,  give $\frac {d\lambda}{dt}$  for each respective phrase. Since the phases are identical except for a displacement in space, the voltage through them will be identical except displaced in time.
+
+\
+
+\begin{equation}
+\frac{d}{dt}
+\begin{bmatrix}
+\lambda_A\\
+\lambda_B\\
+\lambda_C
+\end{bmatrix}
+=
+\begin{bmatrix}
+V_A\\
+V_B\\
+V_C
+\end{bmatrix}
+-
+\begin{bmatrix}
+R& 0  & 0  \\
+0 & R  & 0\\
+0 & 0 & R
+\end{bmatrix}
+\begin{bmatrix}
+i_A \\
+i_B\\
+i_C
+\end{bmatrix}
+\end{equation}
+\
+
+
+Equations A.50 and A.51 give us a system of 9 equations and 9 variables: the variables are the magnetic fluxes, currents, and voltages for the three phases; the resistance, self- inductance, and mutual inductance of the coils are known.
+
+Now that we can solve for the output voltage of the system, we consider the dissipation of the power produced. Applying Ohm's law to the system connected to a load resistor $R_L$ gives:
+
+\
+
+\begin{equation}
+\begin{bmatrix}
+V_A\\
+V_B\\
+V_C
+\end{bmatrix}
+=
+-
+\begin{bmatrix}
+R_L& 0  & 0  \\
+0 & R_L  & 0\\
+0 & 0 & R_L
+\end{bmatrix}
+\begin{bmatrix}
+i_A \\
+i_B\\
+i_C
+\end{bmatrix}
+\end{equation}
+\
+
+
+
+If $R \gg \omega L$, where w is the operating frequency of the system in rad/s, the effect of inductances $L$ and $M$ is negligible compared to that of the resistance $R$. In conclusion  $R_L$ should be equal to $R$ in order to extract the maximum possible power from the system, the instantaneous power dissipated through $R_L$ being:
+
+\
+
+\begin{equation}
+\begin{bmatrix}
+P_A\\
+P_B\\
+P_C
+\end{bmatrix}
+=
+\frac{R_L}{(R+R_L)^2}
+\begin{bmatrix}
+V_A^2 \\
+V_B^2\\
+V_C^2
+\end{bmatrix}
+\end{equation}
+\
+
+
+
+\chapter{Datasheet LTC3108}
+\label{app:manual}
+
+
+\includepdf[pages=-]{doc/3108}
+
+
+
+
+\chapter{Datasheet LTC3109}
+\label{app:manual}
+
+
+\includepdf[pages=-]{doc/3109}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAFIA %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+% Las siguientes dos instrucciones es todo lo que necesitas
+% para incluir las citas en la memoria
+\bibliographystyle{abbrv}
+\bibliography{memoria}  
+\nocite{*}
+% memoria.bib es el nombre del fichero que contiene
+% las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
+% que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
+% formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
+% y verás que lo puedes hacer de manera sencilla.
+% Más información: 
+% http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+
+\end{document}

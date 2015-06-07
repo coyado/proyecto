@@ -1,0 +1,52 @@
+\begin{thebibliography}{1}
+
+\bibitem{LTSpice1}
+Ltspice iv getting started guide ltspice iv getting started guide, 2011.
+\newblock \\
+  http://cds.linear.com/docs/en/software-and-simulation/LTspiceGettingStartedGuide.pdf.
+
+\bibitem{LTSpice}
+G.~Alonso.
+\newblock Ltspice: Simple steps for simulating transformers, July 2014.
+\newblock \\ http://www.linear.com/solutions/5092l.
+
+\bibitem{b}
+S.~Beeby and N.~White.
+\newblock {\em Energy Harvesting for Autonomous System}.
+\newblock Artech House, 2010.
+
+\bibitem{boarm}
+N.~Elvin and A.~Erturk.
+\newblock {\em Advances in Energy Harvesting Methods}.
+\newblock Springer, 2013.
+
+\bibitem{transformer}
+M.~Engelhardt.
+\newblock Using transformers in ltspice/switchercad iii.
+\newblock {\em Linear Technology Magazine}, pages 23, 24, 2006.
+
+\bibitem{ghosh02:_developer_survey}
+R.~A. Ghosh, R.~Glott, B.~Krieger, and G.~Robles.
+\newblock Survey of developers (free/libre and open source software: Survey and
+  study).
+\newblock Technical report, International Institute of Infonomics. University
+  of Maastricht, The Netherlands, June 2002.
+\newblock \\ http://www.infonomics.nl/FLOSS/report.
+
+\bibitem{bonaarm}
+T.~J. Kazmirski.
+\newblock {\em Energy Harvesting Systems: Principles, Modeling and
+  Applications}.
+\newblock Springer, 2011.
+
+\bibitem{bonabeau:_swarm}
+S.~Priya and D.~J. Inman.
+\newblock {\em Energy Harvesting Technologies}.
+\newblock Springer, 2009.
+
+\bibitem{bwarm}
+Y.~K. Tan.
+\newblock {\em Energy Harvesting Autonomous Sensor System}.
+\newblock Taylor and Francis Group, 2013.
+
+\end{thebibliography}
